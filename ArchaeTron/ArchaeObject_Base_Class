@@ -1,0 +1,33 @@
+from abc import ABC, abstractmethod
+
+# Abstract classes
+class Sensed(ABC):
+    @abstractmethod
+    def sense(self):
+        pass
+
+class Inferred(ABC):
+    def __init__(self, sensed_obj):
+        self.sensed_obj = sensed_obj
+
+    @abstractmethod
+    def infer(self):
+        pass
+
+# Concrete implementations of Sensed and Inferred
+class ConcreteSensed1(Sensed):
+    def sense(self):
+        return "Sensed data from ConcreteSensed1"
+
+class ConcreteInferred1(Inferred):
+    def infer(self):
+        sensed_data = self.sensed_obj.sense()
+        return f"Inferred data based on sensed data: {sensed_data}"
+
+# Creating objects
+sensed_object = ConcreteSensed1()
+inferred_object = ConcreteInferred1(sensed_object)
+
+# Using the inferred object
+inferred_data = inferred_object.infer()
+print(inferred_data)
