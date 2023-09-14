@@ -1,17 +1,24 @@
 
 
-from Archae_Object_Factory import *
+from Factories.Archae_Object_Factory import *
+from API_Methods import *
+
+
+
 
 def main():
+  
+  
    # Create concrete archaeological object factories
 
    sensed_factory = ConcreteSensedFactory()
    inferred_factory = ConcreteInferredFactory()
 
    # Create Archaeological Objects of either class using the factory
-
-   sensed_object = sensed_factory.create_sensed()
-   inferred_object = inferred_factory.create_inferred()
+   name1 = "Rath"
+   name2 = "Standing Stone"
+   sensed_object = sensed_factory.create_sensed(name1)
+   inferred_object = inferred_factory.create_inferred(name2)
 
  # view objects structure
 
@@ -19,6 +26,37 @@ def main():
    print(inferred_object.__dict__)
    print(sensed_object.__class__)
    print(inferred_object.__class__)
+   print(sensed_object.__repr__)
+   print(inferred_object.__repr__)
+   # print(sensed_object.name)
+
+
+
+
+
+# Data Acquisition
+
+# fetch JSON data from logainm.ie api 
+
+   api_url_placenames = "https://www.logainm.ie/api/v1.0/administrative-units/"  # Replace this with the actual API URL
+   api_key = "VHjGfxN2wrKL88viNCn378nCHX2eXS"
+
+   # Headers
+   #headers = {
+   #   "Content-Type" : "Application/json"
+  # }
+
+    # params = {
+       # "county": "YourTargetCounty",
+       # "other_parameters": "other_values",
+    #}
+   data = fetch_data_from_api(api_url_placenames, api_key)
+  
+   for item in data["results"]:
+       print(item)
+
+
+
 
 if __name__ == "__main__":
    main()
