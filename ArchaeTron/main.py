@@ -31,31 +31,24 @@ def main():
    # print(sensed_object.name)
 
 
-
-
-
 # Data Acquisition
 
-# fetch JSON data from logainm.ie api 
+# fetch data from logainm.ie api 
 
    api_url_placenames = "https://www.logainm.ie/api/v1.0/administrative-units/"  # Replace this with the actual API URL
    api_key = "VHjGfxN2wrKL88viNCn378nCHX2eXS"
-
-   # Headers
-   #headers = {
-   #   "Content-Type" : "Application/json"
-  # }
-
     # params = {
        # "county": "YourTargetCounty",
        # "other_parameters": "other_values",
     #}
    data = fetch_data_from_api(api_url_placenames, api_key)
-  
-   for item in data["results"]:
+   parsed_file = parse_json(data)
+
+
+   for item in parsed_file:
        print(item)
 
-
+   print(data)
 
 
 if __name__ == "__main__":
