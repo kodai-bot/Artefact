@@ -5,9 +5,7 @@ from API_Methods import *
 
 
 
-
 def main():
-  
   
    # Create concrete archaeological object factories
 
@@ -20,7 +18,7 @@ def main():
    sensed_object = sensed_factory.create_sensed(name1)
    inferred_object = inferred_factory.create_inferred(name2)
 
- # view objects structure
+   # view objects structure
 
    print(sensed_object.__dict__)
    print(inferred_object.__dict__)
@@ -31,9 +29,9 @@ def main():
    # print(sensed_object.name)
 
 
-# Data Acquisition
+  # Data Acquisition
 
-# fetch data from logainm.ie api 
+  # fetch data from logainm.ie api 
 
    api_url_placenames = "https://www.logainm.ie/api/v1.0/administrative-units/"  # Replace this with the actual API URL
    api_key = "VHjGfxN2wrKL88viNCn378nCHX2eXS"
@@ -42,13 +40,12 @@ def main():
        # "other_parameters": "other_values",
     #}
    data = fetch_data_from_api(api_url_placenames, api_key)
-   parsed_file = parse_json(data)
+   # parsed_file = parse_json(data)
 
 
-   for item in parsed_file:
+   for item in data["results"]:
        print(item)
 
-   print(data)
 
 
 if __name__ == "__main__":
