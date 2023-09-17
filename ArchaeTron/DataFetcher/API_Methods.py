@@ -1,7 +1,7 @@
 import requests
 import json
 
-# general API method to request data from a resoutce
+# general API method to request data from a resource
 
 def fetch_data_from_api(api_url, api_key=None):
     try:
@@ -15,6 +15,7 @@ def fetch_data_from_api(api_url, api_key=None):
     except requests.exceptions.RequestException as e:
         print(f"Error occurred: {e}")
         return None
+    
     
     # call if u need to parse a json file  
 def parse_json(file_to_parse):

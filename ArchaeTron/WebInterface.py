@@ -1,13 +1,25 @@
+import gradio as gr
+
+
 class GradioInterface:
     def __init__(self, model):
         self.model = model
     
     def create_interface(self):
+        pass
         # Define Gradio interface components
-    
+
+        
 class WebServer:
     def __init__(self):
-        # Initialize the web server settings
+        pass
+    # Initialize the web server settings
     
     def create_routes(self):
-        # Define routes and endpoints
+        pass
+    # Define routes and endpoints
+
+
+def greet(name):
+    return "Hello " + name + "!"
+    
