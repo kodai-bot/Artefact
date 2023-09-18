@@ -16,8 +16,6 @@ def main():
    # Load geospatial data
 
 
-
-
    # fetch data from logainm.ie api 
    api_url_placenames = "https://www.logainm.ie/api/v1.0/administrative-units/"  # Replace this with the actual API URL
    api_key = "VHjGfxN2wrKL88viNCn378nCHX2eXS"
@@ -33,6 +31,7 @@ def main():
        print(item)
    
    
+
    
    # Create concrete archaeological object factories
 
@@ -40,26 +39,40 @@ def main():
    inferred_factory = ConcreteInferredFactory()
 
    # Create Archaeological Objects of either class using the factory
+   name1 = "Rath"
+   name2 = "Standing Stone"
+   sensed_object = sensed_factory.create_sensed(name1)
+   inferred_object = inferred_factory.create_inferred(name2)
+   
+   # Create builders for Archaeological Objects
+   sensed_builder = sensed_factory.create_sensed_builder()
+   inferred_builder = inferred_factory.create_inferred_builder()
 
-   name1 = "Circle"
+   # Build Archaeological Objects using the builders
+   # Build Sensed Object
+   sensed_builder.set_data(name1)
+   sensed_object = sensed_builder.build()
 
-   sensed_object_1 = sensed_factory.create_sensed(name1)
+   # Build Inferred Object
+   inferred_builder.set_inference_result(name2)
+   inferred_builder.add_sensed_object(sensed_object)
+   inferred_object = inferred_builder.build()
 
-   sensed_obj = sensed_object_1.__repr__
-   inf_result = "Rath"
-   name = "Lios an Doill"
 
-   inferred_object_1 = inferred_factory.create_inferred(inf_result, sensed_obj, name)
+
+
+
+
 
    # view objects structure
 
-   print(sensed_object_1.__dict__)
-   print(inferred_object_1.__dict__)
-   print(sensed_object_1.__class__)
-   print(inferred_object_1.__class__)
-   print(sensed_object_1.__repr__)
-   print(inferred_object_1.__repr__)
-   print(sensed_object_1.name)
+   print(sensed_object.__dict__)
+   print(inferred_object.__dict__)
+   print(sensed_object.__class__)
+   print(inferred_object.__class__)
+   print(sensed_object.__repr__)
+   print(inferred_object.__repr__)
+   print(sensed_object.name)
 
 
    # Create a test web interface
@@ -75,6 +88,7 @@ def main():
 )
     
    demo.launch()
+
 
 
 
