@@ -11,18 +11,18 @@ class SensedFactory(ABC):
 
 class InferredFactory(ABC):
     @abstractmethod
-    def create_inferred(self, obj_name):
+    def create_inferred(self, inf_result, sensed_obj, name):
         pass
 
 # Concrete Factory classes.
 
 class ConcreteSensedFactory(SensedFactory):
     def create_sensed(self, obj_name):
-        return Sensed(obj_name)
+        return SensedObject(obj_name)
 
 class ConcreteInferredFactory(InferredFactory):
-    def create_inferred(self, obj_name):
-        return Inferred(obj_name)
+    def create_inferred(self, inf_result, sensed_obj, name):
+        return InferredObject(inf_result, sensed_obj, name)
 
 
 
