@@ -17,10 +17,15 @@ class InferredFactory(ABC):
 # Concrete Factory classes.
 
 class ConcreteSensedFactory(SensedFactory):
+
     def create_sensed(self, obj_name):
         return Sensed(obj_name)
+    
+    def create_sensed_builder(self):
+        return SensedObjectBuilder()
 
 class ConcreteInferredFactory(InferredFactory):
+
     def create_inferred(self, obj_name):
         return Inferred(obj_name)
 
