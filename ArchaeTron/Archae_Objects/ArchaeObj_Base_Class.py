@@ -3,14 +3,20 @@ from abc import ABC, abstractmethod
 # Abstract archaeological object base classes
 
 class Sensed(ABC):
-    
+    def __init__(self, name):
+        self.sensed_data = None
+        self.name = name
+
     @abstractmethod
-    def sense(self):
+    def sense(self, sensed_data):
         pass
 
 class Inferred(ABC):
-    def __init__(self, sensed_obj):
+    def __init__(self, inf_result, sensed_obj, name):
+        self.inf_result = inf_result
         self.sensed_obj = sensed_obj
+        self.name = name
+    
 
     @abstractmethod
     def infer(self):
@@ -18,20 +24,21 @@ class Inferred(ABC):
 
 # Concrete implementations of Sensed and Inferred
 
-class Sensed:
-   def __init__(self, name):
-       self.sensed_data = None
-       self.name = name
+class SensedObject(Sensed):
+    def __init__(self, name):
+        self.sensed_data = None
+        self.name = name
 
-   def sense(self):
-       self.sensed_data = "Sensed data"
+    def sense(self):
+        self.sensed_data = "Sensed data"
 
-class Inferred:
-   def __init__(self, name):
-       self.inferred_data = None
-       self.name = name
+class InferredObject(Inferred):
+    def __init__(self, inf_result, sensed_obj, name):
+        self.inf_result = inf_result
+        self.sensed_obj = sensed_obj
+        self.name = name
 
-   def infer(self):
-       self.inferred_data = "Inferred data"
+    def infer(self):
+        pass
 
 
