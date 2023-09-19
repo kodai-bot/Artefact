@@ -1,3 +1,4 @@
+from Archae_Objects.ArchaeObj_Base_Class import *
 
 
 class SensedObjectBuilder:
@@ -13,8 +14,6 @@ class SensedObjectBuilder:
 
 
 
-
-
 class InferredObjectBuilder:
     def __init__(self):
         self.inference_result = None
@@ -24,9 +23,13 @@ class InferredObjectBuilder:
         self.inference_result = inference_result
 
     def add_sensed_object(self, sensed_object):
-        self.sensed_objects.append(sensed_object)
+        #self.sensed_objects.append(sensed_object)
+        self.sensed_objects(sensed_object)
+
+    def add_name(self, name):
+        self.name = name
 
     def build(self):
-        return InferredObject(self.inference_result, self.sensed_objects)
+        return InferredObject(self.inference_result, self.sensed_objects, self.name)
 
 

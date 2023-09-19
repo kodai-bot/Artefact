@@ -1,6 +1,7 @@
 
 
 from Factories.Archae_Object_Factory import *
+from Builders.ObjectBuilder import *
 from DataFetcher.API_Methods import *
 from WebInterface import *
 import gradio as gr
@@ -30,7 +31,6 @@ def main():
    for item in data["results"]:
        print(item)
    
-   
 
    
    # Create concrete archaeological object factories
@@ -39,11 +39,14 @@ def main():
    inferred_factory = ConcreteInferredFactory()
 
    # Create Archaeological Objects of either class using the factory
-   name1 = "Rath"
-   name2 = "Standing Stone"
-   sensed_object = sensed_factory.create_sensed(name1)
-   inferred_object = inferred_factory.create_inferred(name2)
+   name1 = "Lios an Doill" # Data from API goes here
+   name2 = "Rath"          # Iterator for object creation goes here
+
+   # Obsolete code
+   # sensed_object = sensed_factory.create_sensed(name1)
+   # inferred_object = inferred_factory.create_inferred(name2)
    
+
    # Create builders for Archaeological Objects
    sensed_builder = sensed_factory.create_sensed_builder()
    inferred_builder = inferred_factory.create_inferred_builder()
@@ -53,15 +56,14 @@ def main():
    sensed_builder.set_data(name1)
    sensed_object = sensed_builder.build()
 
+   sensed_obj = sensed_object.__repr__
+   inf_result = "Inference result"
+
    # Build Inferred Object
    inferred_builder.set_inference_result(name2)
+   inferred_builder
    inferred_builder.add_sensed_object(sensed_object)
    inferred_object = inferred_builder.build()
-
-
-
-
-
 
 
    # view objects structure

@@ -40,8 +40,8 @@ class ConcreteInferredFactory(InferredFactory):
     def create_inferred(self, obj_name):
         return Inferred(obj_name)
     
-    #def create_inferred_builder(self):
-    #    return InferredObjectBuilder()
+    def create_inferred_builder(self):
+        return InferredObjectBuilder()
     
 
 
