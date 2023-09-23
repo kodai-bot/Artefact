@@ -11,12 +11,18 @@ class GeopandasHandler:
     
     def load_geospatial_data(self, file_path):
         df = gpd.read_file(file_path)
+        return df
         # Load geographic data using Geopandas
+
+
     
     def visualize_data(self, data):
         # Visualize geographic data using Geopandas
         data.plot()
         plt.show()
+
+
+
 
 
         # Polygon data manipulation functions

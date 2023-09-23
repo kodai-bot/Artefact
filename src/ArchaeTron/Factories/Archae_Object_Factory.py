@@ -14,6 +14,8 @@ class SensedFactory(ABC):
     @abstractmethod
     def create_sensed_builder(self):
         return SensedObjectBuilder()
+    
+    
 
 class InferredFactory(ABC):
     @abstractmethod
@@ -32,8 +34,8 @@ class ConcreteSensedFactory(SensedFactory):
     def create_sensed(self, obj_name):
         return Sensed(obj_name)
     
-    #def create_sensed_builder(self):
-    #   return SensedObjectBuilder()
+    def create_sensed_builder(self):
+       return SensedObjectBuilder()
 
 class ConcreteInferredFactory(InferredFactory):
 

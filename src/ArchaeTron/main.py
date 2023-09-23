@@ -14,10 +14,12 @@ def main():
    # Acquire data
    # Create a test geopandas handler
    geopandas_handler = GeopandasHandler()
+   
    # Load geospatial data
 
 
-   # fetch data from logainm.ie api 
+   # fetch data from api service
+
    api_url_placenames = "https://www.logainm.ie/api/v1.0/administrative-units/"  # Replace this with the actual API URL
    api_key = "VHjGfxN2wrKL88viNCn378nCHX2eXS"
     # params = {
@@ -26,8 +28,6 @@ def main():
     #}
    data = fetch_data_from_api(api_url_placenames, api_key)
    # parsed_file = parse_json(data)
-
-
    for item in data["results"]:
        print(item)
    
@@ -36,6 +36,7 @@ def main():
    # Create concrete archaeological object factories
 
    sensed_factory = ConcreteSensedFactory()
+   
    inferred_factory = ConcreteInferredFactory()
 
    # Create Archaeological Objects of either class using the factory
@@ -53,7 +54,14 @@ def main():
 
    # Build Archaeological Objects using the builders
    # Build Sensed Object
-   sensed_builder.set_data(name1)
+   sensed_builder.set_data("Sensed data")
+   sensed_builder.set_name(name1)
+   sensed_builder.set_sensed_position(35, 45, 55)
+   sensed_builder.set_incept_position(1250)
+   sensed_builder.set_destruct_position(300)
+     
+
+   
    sensed_object = sensed_builder.build()
 
    sensed_obj = sensed_object.__repr__
@@ -61,8 +69,8 @@ def main():
 
    # Build Inferred Object
    inferred_builder.set_inference_result(name2)
-   inferred_builder
-   inferred_builder.add_sensed_object(sensed_object)
+   inferred_builder.add_sensed_object(sensed_obj)
+   inferred_builder.add_name(name = "potato")
    inferred_object = inferred_builder.build()
 
 

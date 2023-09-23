@@ -32,10 +32,10 @@ print(f"Years from epoch: {years}")
 
 
 def to_light_years(years):
-  # Convert the number of years to light years by multiplying by the speed of light
-  light_years = years * 299792458  # speed of light in meters per second
+    # Convert the number of years to light years by multiplying by the speed of light
+    light_years = years * 299792458  # speed of light in meters per second
 
-  return light_years
+    return light_years
 
 # Convert 1 year to light years
 # years = 1
