@@ -53,7 +53,7 @@ class InferredObject(Inferred):
         pass
 
 
-class InferredState(self, sensed_obj, state):
+class InferredState(Inferred):
     def __init__(self, sensed_obj, name):
         self.sensed_obj = sensed_obj
         self.name = name
@@ -62,7 +62,7 @@ class InferredState(self, sensed_obj, state):
     def infer(self):
         pass
 
-class InferredMotionPattern(self, sensed_obj, motion_pattern):
+class InferredMotionPattern(Inferred):
     def __init__(self, sensed_obj, name):
         self.sensed_obj = sensed_obj
         self.name = name
@@ -72,7 +72,7 @@ class InferredMotionPattern(self, sensed_obj, motion_pattern):
         pass
 
 
-class InferredAgent(self, sensed_obj, agent):
+class InferredAgent(Inferred):
     def __init__(self, sensed_obj, name):
         self.sensed_obj = sensed_obj
         self.name = name
