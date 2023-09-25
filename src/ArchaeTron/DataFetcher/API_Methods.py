@@ -23,7 +23,4 @@ def parse_json(file_to_parse):
     return parsed_data
 
     
-    # Call if you need to extract json dict from a webpage text
-def text_to_json(data):
-    data_json = json.loads(data.text)
-    return data_json
+    

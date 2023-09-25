@@ -6,16 +6,19 @@ from DataFetcher.API_Methods import *
 from WebInterface import *
 import gradio as gr
 from GeoDataHandler.GeopandasHandler import *
-
+.import DataFetcher.API_Methods
 
 
 def main():
   
    # Acquire data
-   # Create a test geopandas handler
+   fetch_data = DataFetcher()
+
    geopandas_handler = GeopandasHandler()
    
    # Load geospatial data
+   
+   # # Create a test geopandas handler
 
 
    # fetch data from api service
