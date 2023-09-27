@@ -17,4 +17,4 @@ class GeoDataVisualiser:
         self.data.plot(ax=ax)
         plt.show()
         
-        s
+        

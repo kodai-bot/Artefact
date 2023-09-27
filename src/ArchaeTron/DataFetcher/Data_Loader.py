@@ -23,7 +23,7 @@ class DataLoader:
         # Load data from database
         pass    
 
-    def load_archaeological_data(self, shapefile_path):
+    def load_point_shapefile(self, shapefile_path):
         # Fetch point data from local shapefile
         try:
             # Use geopandas to read the shapefile
@@ -33,6 +33,7 @@ class DataLoader:
             print(f"Shapefile loaded from {shapefile_path}.")
             print(f"Number of rows: {len(gdf)}")
             print(f"Columns: {gdf.columns}")
+            print(f"CRS: {gdf.crs}")
 
             return gdf
     
@@ -41,6 +42,19 @@ class DataLoader:
             return None
         
     
-    def fetch_territory_data(self, territory_type):
+    def load_polygon_shapefile(self, shapefile_path):
+        gdf = gpd.read_file(self.shapefile_path)
+
+        # Print information about the loaded shapefile (optional)  
+        print(f"Shapefile loaded from {self.shapefile_path}.")
+        print(f"Number of rows: {len(gdf)}")
+        print(f"Columns: {gdf.columns}")
+        print(f"CRS: {gdf.crs}")
+
+        
+        return gdf
+    
+
         # Fetch polygon data from local shapefile
+
         
