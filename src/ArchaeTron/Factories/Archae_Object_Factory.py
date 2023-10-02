@@ -22,6 +22,13 @@ class ArchObjectFactory(ABC):
 
 class ConcreteObjectFactory(ArchObjectFactory):
 
+    def create_sensed(self, obj_name):
+        return Sensed(obj_name)
+    
+
+
+
+
     def create_sensed_builder(self, obj_name):
         return SensedObjectBuilder(obj_name)
     

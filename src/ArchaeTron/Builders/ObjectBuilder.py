@@ -1,7 +1,7 @@
 from Archae_Objects.ArchaeObj_Base_Class import *
 
 
-class SensedObjectBuilder:
+class ArchObjectBuilder:
     def __init__(self):
         self.data = None
         self.name = None
@@ -23,13 +23,13 @@ class SensedObjectBuilder:
 
 
     def build(self):
-        return SensedObject(self.data, self.name, self.sensed_position, self.incept_position, self.destruct_position)
+        return ArchObject(self.data, self.name, self.sensed_position, self.incept_position, self.destruct_position)
     
 
 
 
 
-class InferredObjectBuilder:
+class MotionTraceBuilder:
     def __init__(self):
         self.inference_result = None    
         self.sensed_objects = []
@@ -46,6 +46,24 @@ class InferredObjectBuilder:
         self.name = name
 
     def build(self):
-        return InferredObject(self.inference_result, self.sensed_objects, self.name)
+        return MotionTraceObject(self.inference_result, self.sensed_objects, self.name)
 
 
+class AgentBuilder:
+    def __init__(self):
+        self.inference_result = None    
+        self.sensed_objects = []
+        self.name = None
+
+    def set_inference_result(self, inference_result):
+        self.inference_result = inference_result
+
+    def add_sensed_object(self, sensed_object):
+        self.sensed_objects.append(sensed_object)
+        #self.sensed_objects(sensed_object)
+
+    def add_name(self, name):
+        self.name = name
+
+    def build(self):
+        return AgentObject(self.inference_result, self.sensed_objects, self.name)
