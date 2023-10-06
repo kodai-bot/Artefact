@@ -28,9 +28,10 @@ def main():
    
     # Load geospatial data
     baronies_loader = DataLoader()
+    
+    barony_zip = "zip:///Users/mensab/Documents/GISMapFiles/Baronies_-_OSi_National_Statutory_Boundaries_-_Generalised_20m-shp.zip"
 
-    barony_map = baronies_loader.load_polygon_shapefile("/Users/mensab/Documents/GISMapFiles/Baronies_-_OSi_National_Statutory_Boundaries_-_Generalised_20m-shp")
-
+    barony_map = baronies_loader.load_polygon_shapefile(barony_zip)
 
    
 

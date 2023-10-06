@@ -8,6 +8,7 @@ class DataLoader:
         self.data_dir = None
         self.data_db = None
         self.shapefile_path = None
+       
         self.territory_type = None
 
   
@@ -43,6 +44,7 @@ class DataLoader:
         
     
     def load_polygon_shapefile(self, shapefile_path):
+
         gdf = gpd.read_file(self.shapefile_path)
 
         # Print information about the loaded shapefile (optional)  

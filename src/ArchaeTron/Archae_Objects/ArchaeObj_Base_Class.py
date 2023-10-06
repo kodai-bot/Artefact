@@ -3,12 +3,13 @@ from abc import ABC, abstractmethod
 # Abstract archaeological object base classes
 
 class ArchaeObject(ABC):
-    def __init__(self, name):
+    def __init__(self, name, number, ):
         self.data = None
         self.name = name
+        self.number = None
         self.sensed_position = None
-        self.incept_position = None
-        self.destruction_position = None
+        # self.incept_position = None
+        # self.destruction_position = None
 
     @abstractmethod
     def clone(self):
@@ -21,6 +22,7 @@ class Sensed(ArchaeObject):
     def __init__(self, name):
         self.sensed_data = None
         self.name = name
+        self.number = None
         self.sensed_position = None
         self.incept_position = None
         self.destruction_position = None
