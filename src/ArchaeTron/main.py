@@ -23,17 +23,27 @@ def main():
    
                                 
    
+    # Load geospatial data from local shapefiles. These are downloaded from the OSI website
 
-
-   
-    # Load geospatial data
+    # Load baronies shapefile
     baronies_loader = DataLoader()
-    
     barony_zip = "zip:///Users/mensab/Documents/GISMapFiles/Baronies_-_OSi_National_Statutory_Boundaries_-_Generalised_20m-shp.zip"
-
     barony_map = baronies_loader.load_polygon_shapefile(barony_zip)
 
-   
+    # Load provinces shapefile
+    provinces_loader = DataLoader()
+    province_zip = "zip:///Users/mensab/Documents/GISMapFiles/Provinces_-_OSi_National_Statutory_Boundaries_-_Generalised_20m-shp.zip"
+    province_map = provinces_loader.load_polygon_shapefile(province_zip)
+
+    # Load civil parishes shapefile
+    civil_parishes_loader = DataLoader()
+    civil_parish_zip = "zip:///Users/mensab/Documents/GISMapFiles/Civil_Parishes_-_OSi_National_Statutory_Boundaries_-_Generalised_20m-shp.zip"
+    civil_parish_map = civil_parishes_loader.load_polygon_shapefile(civil_parish_zip)
+
+    # Load townlands shapefile
+    townlands_loader = DataLoader()
+    townland_zip = "zip:///Users/mensab/Documents/GISMapFiles/Townlands_-_OSi_National_Statutory_Boundaries_-_Generalised_20m-shp.zip"
+    townland_map = townlands_loader.load_polygon_shapefile(townland_zip)
 
 
 

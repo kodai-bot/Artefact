@@ -3,9 +3,9 @@ from abc import ABC, abstractmethod
 # Abstract archaeological object base classes
 
 class ArchaeObject(ABC):
-    def __init__(self, name, number, ):
+    def __init__(self):
         self.data = None
-        self.name = name
+        self.name = None
         self.number = None
         self.sensed_position = None
         # self.incept_position = None
@@ -19,9 +19,9 @@ class ArchaeObject(ABC):
 
 
 class Sensed(ArchaeObject):
-    def __init__(self, name):
+    def __init__(self):
         self.sensed_data = None
-        self.name = name
+        self.name = None
         self.number = None
         self.sensed_position = None
         self.incept_position = None
