@@ -16,14 +16,16 @@ import geopandas as gpd
 def main():
    
    
-    # Acquire monuments point data from local file
-    #load_monuments = DataLoader()
+    # Acquire monuments point data from local file. This is ALL known monuments in Ireland.
+    # Uses a DataLoader class to load the data
 
-    #national_monuments = load_monuments.load_point_shapefile("/Users/mensab/Documents/GISMapFiles/NMS_OpenData_20230623_shp.zip")
+    #monuments_loader = DataLoader()
+    #monuments_zip = "zip:///Users/mensab/Documents/GISMapFiles/NMS_OpenData_20230623_shp.zip"
+    #monuments_map = monuments_loader.load_point_shapefile(monuments_zip)
    
-                                
-   
+
     # Load geospatial data from local shapefiles. These are downloaded from the OSI website
+    # Uses a DataLoader class to load the data
 
     # Load baronies shapefile
     baronies_loader = DataLoader()
@@ -44,6 +46,18 @@ def main():
     townlands_loader = DataLoader()
     townland_zip = "zip:///Users/mensab/Documents/GISMapFiles/Townlands_-_OSi_National_Statutory_Boundaries_-_Generalised_20m-shp.zip"
     townland_map = townlands_loader.load_polygon_shapefile(townland_zip)
+
+    # Load counties shapefile
+    #counties_loader = DataLoader()
+    # county_zip = "zip:///Users/mensab/Documents/GISMapFiles/Counties_-_OSi_National_Statutory_Boundaries_-_Generalised_20m-shp.zip"
+    # county_map = counties_loader.load_polygon_shapefile(county_zip)
+
+    tii_loader = DataLoader()
+    tii_zip = "zip:////Users/mensab/Documents/GISMapFiles/TIIArchaeology.zip"
+    tii_map = tii_loader.load_point_shapefile(tii_zip)
+
+    
+
 
 
 

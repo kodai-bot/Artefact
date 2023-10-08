@@ -1,18 +1,36 @@
 import geopandas as gpd
+import pandas as pd
 # class to load local data from files and databases
 
 class DataLoader:
     def __init__(self):
-        self.data = None
         self.data_file = None
         self.data_dir = None
         self.data_db = None
         self.territory_type = None
 
   
-    def load_data(self, data_file):
+    def load_csv(self, csv_file):
         # Load data from file
-        pass
+        try:
+            # Use pandas to read the csv file
+            df = pd.read_csv(csv_file)
+
+            # Print information about the loaded csv file (optional)
+            print(f"CSV file loaded from {csv_file}.")
+            print(f"Number of rows: {len(df)}")
+            print(f"Columns: {df.columns}")
+            print(f"Data types: {df.dtypes}")
+            print(f"Head: {df.head()}")
+
+            return df
+
+        except Exception as e:
+            print(f"Error occurred while loading the csv file: {e}")
+            return None
+
+
+        
 
     def load_data_dir(self, data_dir):
         # Load data from directory
