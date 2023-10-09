@@ -2,12 +2,13 @@
 
 from Factories.Archae_Object_Factory import *
 from Builders.ObjectBuilder import *
-from DataFetcher.API_Methods import *
+from DataFetcher.APIHandler import *
 from WebInterface import *
 import gradio as gr
 from GeoDataHandler.GeopandasHandler import *
 from DataFetcher.Data_Loader import DataLoader
 import geopandas as gpd
+from GeoDataHandler.GeoDataVisualiser import GeoDataVisualiser
 
 
 
@@ -19,9 +20,9 @@ def main():
     # Acquire monuments point data from local file. This is ALL known monuments in Ireland.
     # Uses a DataLoader class to load the data
 
-    #monuments_loader = DataLoader()
-    #monuments_zip = "zip:///Users/mensab/Documents/GISMapFiles/NMS_OpenData_20230623_shp.zip"
-    #monuments_map = monuments_loader.load_point_shapefile(monuments_zip)
+    monuments_loader = DataLoader()
+    monuments_zip = "zip:///Users/mensab/Documents/GISMapFiles/NMS_OpenData_20230623_shp.zip"
+    monuments_map = monuments_loader.load_point_shapefile(monuments_zip)
    
 
     # Load geospatial data from local shapefiles. These are downloaded from the OSI website
@@ -48,43 +49,59 @@ def main():
     townland_map = townlands_loader.load_polygon_shapefile(townland_zip)
 
     # Load counties shapefile
-    #counties_loader = DataLoader()
-    # county_zip = "zip:///Users/mensab/Documents/GISMapFiles/Counties_-_OSi_National_Statutory_Boundaries_-_Generalised_20m-shp.zip"
-    # county_map = counties_loader.load_polygon_shapefile(county_zip)
+    counties_loader = DataLoader()
+    county_zip = "zip:///Users/mensab/Documents/GISMapFiles/Counties_-_National_Statutory_Boundaries_-_2019_-_Generalised_20m.zip"
+    county_map = counties_loader.load_polygon_shapefile(county_zip)
+
+    # Load TII (Transport Infrastructure Ireland) Archaeology shapefile
 
     tii_loader = DataLoader()
     tii_zip = "zip:////Users/mensab/Documents/GISMapFiles/TIIArchaeology.zip"
     tii_map = tii_loader.load_point_shapefile(tii_zip)
 
-    
-
-
-
-
-   
-    # Create a test geopandas handler
-
-
-
-
-
-
+    # Connect to the API and fetch data
     # Connect to available api  Monuments services are offline
+    # Monuments API is below, the data has been loaded above as a file while API is offline.
 
     # api_url_monuments = "https://webservices.archaeology.ie/arcgis/rest/services/NM/NationalMonuments/MapServer"  # Replace this with the actual API URL
 
-
-
+    # Connect to Logainm API and fetch data
+    placenames_loader = APIHandler()
     api_url_placenames = "https://www.logainm.ie/api/v1.0/administrative-units/"  # Replace this with the actual API URL
     api_key = "VHjGfxN2wrKL88viNCn378nCHX2eXS"
     # params = {
         # "county": "YourTargetCounty",
         # "other_parameters": "other_values",
      #}
-    data = fetch_data_from_api(api_url_placenames, api_key)
+
+    #placenames_data = placenames_loader.fetch_data_from_api(api_url_placenames, api_key)
+
     # parsed_file = parse_json(data)
-    for item in data["results"]:
-        print(item)
+    #for item in data["results"]:
+        #print(item)
+
+
+    # _______________________________________________________________________________________________________________________
+
+    # Initial data visualisation
+
+    visualiser = GeoDataVisualiser()
+    visualiser.plot_data(barony_map)
+
+    
+    filtered_points = monuments_map[monuments_map['COUNTY'].isin(['SLIGO', 'DOMEGAL'])]
+    visualiser.plot_data_combined(barony_map, monuments_map)
+
+
+
+
+
+
+
+
+    # _______________________________________________________________________________________________________________________
+   
+    # Create a test geopandas handler
    
 
     geopandas_handler = GeopandasHandler()
