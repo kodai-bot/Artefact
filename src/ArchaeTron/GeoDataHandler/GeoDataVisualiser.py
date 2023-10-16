@@ -15,6 +15,12 @@ class GeoDataVisualiser:
     def __init__(self):
         pass
 
+
+    def visualize_data(self, data):
+        # Visualize geographic data using Geopandas
+        data.plot()
+        plt.show()
+
     # Plot the data using matplotlib
     def plot_data(self, geo_data):
         fig, ax = plt.subplots(figsize=(15, 15))
@@ -33,10 +39,10 @@ class GeoDataVisualiser:
         fig, ax = plt.subplots(figsize=(15, 15))
     
         # Plot the basemap
-        basemap.plot(ax=ax, color='white', edgecolor='black')
+        basemap.plot(ax=ax, color='gray', edgecolor='black')
     
         # Plot the point data on top of the basemap
-        point_data.plot(ax=ax, marker='o', color='blue', markersize=1)
+        point_data.plot(ax=ax, marker='o', color='black', markersize=1)
     
         # Show the combined plot
         plt.show()

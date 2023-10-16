@@ -89,7 +89,7 @@ def main():
     visualiser.plot_data(barony_map)
 
     
-    filtered_points = monuments_map[monuments_map['COUNTY'].isin(['SLIGO', 'DOMEGAL'])]
+    filtered_points = monuments_map[monuments_map['COUNTY'].isin(['SLIGO', 'DONEGAL'])]
     visualiser.plot_data_combined(barony_map, monuments_map)
 
 
