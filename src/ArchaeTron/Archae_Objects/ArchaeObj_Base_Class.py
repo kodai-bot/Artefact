@@ -54,16 +54,16 @@ class ArchObject(Sensed):
         self.agent = agent
         self.symmetry = symmetry
 
-    def operation(self):
-        return "ArchObject"
+    def sense(self, sensed_data):
+        self.sensed_data = sensed_data
+        return self.sensed_data
     
     def clone(self):
-        return super().clone()
+        return self.__class__(self.sensed_obj, self.name, self.agent, self.symmetry)    
     
-
-
-    def infer(self):
-        pass
+    
+   
+    
 
 # uaon = Universal Archaeological Object Number
 
@@ -74,77 +74,10 @@ class ArchObject(Inferred):
         self.agent = None
         self.symmetry = None
 
-
     def infer(self):
-        pass
-
-
-
-
-class SensedAgent(Sensed):
-    def __init__(self, name):
-        self.sensed_data = None
-        self.name = name
-        self.sensed_position = None
-        self.incept_position = None
-        self.destruction_position = None
-        self.symmetry = None
-
+        self.inference_result = inference_result
+        return self.inference_result
+    
     def clone(self):
-        return SensedAgent() 
+        return self.__class__(self.uaon, self.name, self.agent, self.symmetry)
 
-
-    def sense(self):
-        self.sensed_data = "Sensed data"
-
-
-class InferredAgent(Inferred):
-    def __init__(self, inf_result, sensed_obj, name):
-        self.inf_result = inf_result
-        self.sensed_obj = sensed_obj
-        self.name = name
-
-
-    def clone(self):
-        return InferredAgent()
-
-
-    # MotionTrace object definition
-
-
-class MotionTrace(Sensed):
-    def __init__(self, sensed_obj, name):
-        self.sensed_obj = sensed_obj
-        self.name = name
-        self.state = state
-
-    def infer(self):
-        pass
-
-
-
-
-
-
-
-class MotionTrace(Inferred):
-    def __init__(self, sensed_obj, name):
-        self.sensed_obj = sensed_obj
-        self.name = name
-        self.motion_pattern = motion_pattern
-
-
-    def clone(self):
-        return super().clone()  
-
-
-    
-    
-    
-    
-    
-    
-    
-    # Composite class definition
-
-    # Composite class

@@ -1,1 +1,14 @@
-.venv
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+__pycache__/
+*.pyc
+*.pyo
+.cache/
+.pytest_cache/
+.vscode/
+.idea/
+.DS_Store  # macOS specific
+artefactenv/

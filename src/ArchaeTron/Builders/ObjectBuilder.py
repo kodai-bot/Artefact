@@ -67,3 +67,27 @@ class AgentBuilder:
 
     def build(self):
         return AgentObject(self.inference_result, self.sensed_objects, self.name)
+    
+
+
+    class GeoDataFrameBuilder:
+        def __init__(self):
+            self.data = {}      # Dictionary to store attribute data
+            self.geometry = []  # List to store geometry objects
+
+
+        def add_data(self, column_name, values):
+            self.data[column_name] = values
+            return self  # Return the builder instance to allow method chaining
+            
+
+        def add_geometry(self, geometry):
+            self.geometry.append(geometry)
+            return self  # Return the builder instance to allow method chaining
+        
+        
+        def build(self):
+            gdf = gpd.GeoDataFrame(self.data, geometry=self.geometry)
+            return gdf
+
+
