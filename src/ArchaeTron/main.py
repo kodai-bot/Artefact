@@ -9,6 +9,8 @@ from GeoDataHandler.GeopandasHandler import *
 from DataFetcher.Data_Loader import DataLoader
 import geopandas as gpd
 from GeoDataHandler.GeoDataVisualiser import GeoDataVisualiser
+from GeoDataHandler.TextEntitySearch import TextProcessor  # This is the class that will be used to process the text data
+from 
 
 
 
@@ -44,9 +46,9 @@ def main():
     civil_parish_map = civil_parishes_loader.load_polygon_shapefile(civil_parish_zip)
 
     # Load townlands shapefile
-    townlands_loader = DataLoader()
-    townland_zip = "zip:///Users/mensab/Documents/GISMapFiles/Townlands_-_OSi_National_Statutory_Boundaries_-_Generalised_20m-shp.zip"
-    townland_map = townlands_loader.load_polygon_shapefile(townland_zip)
+    #townlands_loader = DataLoader()
+    #townland_zip = "zip:///Users/mensab/Documents/GISMapFiles/Townlands_-_OSi_National_Statutory_Boundaries_-_Generalised_20m-shp.zip"
+    #townland_map = townlands_loader.load_polygon_shapefile(townland_zip)
 
     # Load counties shapefile
     counties_loader = DataLoader()
@@ -55,9 +57,9 @@ def main():
 
     # Load TII (Transport Infrastructure Ireland) Archaeology shapefile
 
-    tii_loader = DataLoader()
-    tii_zip = "zip:////Users/mensab/Documents/GISMapFiles/TIIArchaeology.zip"
-    tii_map = tii_loader.load_point_shapefile(tii_zip)
+    #tii_loader = DataLoader()
+    #tii_zip = "zip:////Users/mensab/Documents/GISMapFiles/TIIArchaeology.zip"
+    #tii_map = tii_loader.load_point_shapefile(tii_zip)
 
     # Connect to the API and fetch data
     # Connect to available api  Monuments services are offline
@@ -83,14 +85,17 @@ def main():
 
     # _______________________________________________________________________________________________________________________
 
-    # Initial data visualisation
+    # Initial data visualisation of full dataset
 
-    visualiser = GeoDataVisualiser()
-    visualiser.plot_data(barony_map)
+    #visualiser = GeoDataVisualiser()
+    #visualiser.plot_data(barony_map)
+  
 
-    
-    filtered_points = monuments_map[monuments_map['COUNTY'].isin(['SLIGO', 'DONEGAL'])]
-    visualiser.plot_data_combined(barony_map, monuments_map)
+    # Visualise the data for the northwest counties
+
+    northwest_monuments = monuments_map[monuments_map['COUNTY'].isin(['SLIGO', 'DONEGAL','LEITRIM'])]
+    # visualiser.plot_data_combined(barony_map, monuments_map)
+   
 
 
 
@@ -101,6 +106,13 @@ def main():
 
     # _______________________________________________________________________________________________________________________
    
+    # Feature engineering
+    
+    
+
+
+
+
     # Create a test geopandas handler
    
 
@@ -113,13 +125,36 @@ def main():
 
     # _______________________________________________________________________________________________________________________
    
-    # Create concrete archaeological object factories
+    # Create concrete archaeological object factoriesm these will create builders for the objects
+    # and the GeoDataFrame builder will assemble them into a GeoDataFrame
 
+    # Sensed Object Factory
     sensed_factory = ConcreteSensedFactory()
-   
+
+    # Inferred Object Factory
     inferred_factory = ConcreteInferredFactory()
 
-    # Create Archaeological Objects of either class using the factory
+    # Concrete GeoDataFrame factory
+    geodataframe_factory = ConcreteGeoDataFrameFactory()
+
+    
+    
+    # Create builders for Archaeological Objects
+
+    # Sensed Object Builder
+    sensed_builder = sensed_factory.create_sensed_builder()
+    
+    # Inferred Object Builder
+    inferred_builder = inferred_factory.create_inferred_builder()
+
+    # Create a concrete GeoDataFrame builder
+    geodataframe_builder = geodataframe_factory.create_GeoDataFrameBuilder()
+
+
+    # _______________________________________________________________________________________________________________________
+
+    # Create Archaeological Objects of either class using the builders
+
     name1 = "Lios an Doill" # Data from API goes here
     name2 = "Rath"          # Iterator for object creation goes here
 
@@ -128,12 +163,12 @@ def main():
     # inferred_object = inferred_factory.create_inferred(name2)
    
 
-    # Create builders for Archaeological Objects
-    sensed_builder = sensed_factory.create_sensed_builder()
-    inferred_builder = inferred_factory.create_inferred_builder()
+    
 
     # Build Archaeological Objects using the builders
-    # Build Sensed Object
+
+
+    # Build Sensed Objects
     sensed_builder.set_data("Sensed data")
     sensed_builder.set_name(name1)
     sensed_builder.set_sensed_position(35, 45, 55)
@@ -147,7 +182,7 @@ def main():
     sensed_obj = sensed_object.__repr__
     inf_result = "Inference result"
 
-    # Build Inferred Object
+    # Build Inferred Objects
     inferred_builder.set_inference_result(name2)
     inferred_builder.add_sensed_object(sensed_obj)
     inferred_builder.add_name(name = "potato")
@@ -165,6 +200,45 @@ def main():
     print(sensed_object.name)
 
 
+    # _______________________________________________________________________________________________________________________
+
+
+    # Feature engineering
+
+    # Create a text processor to extract measurement and shape data.
+
+    
+    processor = TextProcessor(northwest_monuments, 'WEB_NOTES')
+    processor.create_columns()
+    northwest_monuments = processor.process_text()
+    print(northwest_monuments.head())
+    #northwest_monuments.to_csv('northwest_monuments.csv', index=False)
+
+
+
+
+
+
+    # Convert the objects to a GeoDataFrame
+
+    # Encode columns as categorical data
+    
+
+
+# _______________________________________________________________________________________________________________________
+
+    # Choose machine learning model to use for inference
+
+
+    # Evaluate the model
+
+
+    # Save the model
+
+
+# _______________________________________________________________________________________________________________________
+    # Display the results 
+    
     # Create a test web interface
 
     def greet(name):

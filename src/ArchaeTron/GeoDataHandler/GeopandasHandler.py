@@ -16,9 +16,11 @@ class GeopandasHandler:
 
 
     
+      
     
 
-        # Polygon data manipulation functions
+
+    # Polygon data manipulation functions
 
     def create_polygon_buffer(self, polygon, buffer_distance):
         # Create polygon buffer
@@ -30,12 +32,11 @@ class GeopandasHandler:
         points_within_buffer = points.within(polygon_buffer)
         return points_within_buffer
     
-    
-    
     def return_points_within_polygon(self, polygon, points):
         # Return points within polygon
         points_within_polygon = points.within(polygon)
         return points_within_polygon
+    
     
     def merge_polygons(self, polygon1, polygon2):
         # Merge polygons
@@ -46,6 +47,11 @@ class GeopandasHandler:
         # Return polygon centroid
         polygon_centroid = polygon.centroid
         return polygon_centroid
+    
+    def add_column_to_geodataframe(self, geodataframe, column_name, column_data):
+        # Add column to GeoDataFrame
+        geodataframe[column_name] = column_data
+        return geodataframe
     
    
 
@@ -62,9 +68,11 @@ class GeopandasHandler:
 
         # Append the merged polygon to the original GeoDataFrame
         result_geodataframe = geodataframe.append(merged_polygon, ignore_index=True)
-
         return result_geodataframe
 
         # Example usage:
         # Assuming you have a GeoDataFrame named 'gdf' and you want to merge rows at indices 1 and 2 into a new polygon with the name 'MergedPolygon'
         # result_gdf = merge_and_rename_polygons(gdf, 1, 2, 'MergedPolygon')
+
+
+        
