@@ -15,9 +15,26 @@ class GeopandasHandler:
         # Load geographic data using Geopandas
 
 
-    
+    # Define a function to apply value replacements based on a mapping dictionary
+    def replace_values(df, source_column, target_column, mapping_dict):
+        # df: The GeoDataFrame to operate on
+        # source_column: The column to read values from
+        # target_column: The column to write the replaced values to
+        # mapping_dict: A dictionary mapping values in the source column to new values
+
+        # Use the replace method to apply the replacements and store the result in the target column
+        df[target_column] = df[source_column].replace(mapping_dict)
+
+        # Return the updated GeoDataFrame
+        return df
       
     
+
+
+
+
+
+
 
 
     # Polygon data manipulation functions

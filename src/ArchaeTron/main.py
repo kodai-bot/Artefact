@@ -107,16 +107,30 @@ def main():
     # _______________________________________________________________________________________________________________________
    
     # Feature engineering
+    # Take an existing GeoDataFrame
+    #existing_gdf = gpd.read_file('your_shapefile.shp')  # Replace with your shapefile
+
+    # Extract the columns you want
+    #column1_values = existing_gdf['column1']
+    #column2_values = existing_gdf['column2']
+
+
+
     
-    
-
-
-
-
     # Create a test geopandas handler
-   
-
     geopandas_handler = GeopandasHandler()
+
+    
+    # Define the mapping dictionary to use for value replacement. This is a dictionary of key-value pairs
+
+    #replacement_map = {
+    #'Rath': 'Radial',
+    #'': 'SomeValue',  # Add more mappings as needed
+#}
+
+# Use the function to replace values
+gdf =  replace_values(gdf, source_column='M_Type', target_column='Symmetry', mapping_dict=replacement_map)
+
 
 
 
