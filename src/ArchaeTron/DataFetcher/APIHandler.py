@@ -25,11 +25,33 @@ class APIHandler:
             print(f"Error occurred: {e}")
             return None
     
+
+
+
+# Json handler class to parse and save json data
+
+class JSONHandler:
+    def __init__(self):
+        pass
     
     # call if u need to parse a json file  
     def parse_json(file_to_parse):
         parsed_data = json.loads(file_to_parse)
         return parsed_data
+    
+    
+    # call if u need to save json data to a local file
+    def save_data_to_file(self, data, path):
+        with open(path, 'w') as outfile:
+            json.dump(data, outfile, indent=4)
+            print(f"Data saved to {path}.")
+
+    
+    
+
+    
+    # 
+
 
     
     

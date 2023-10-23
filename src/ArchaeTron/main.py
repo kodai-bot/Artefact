@@ -10,7 +10,9 @@ from DataFetcher.Data_Loader import DataLoader
 import geopandas as gpd
 from GeoDataHandler.GeoDataVisualiser import GeoDataVisualiser
 from GeoDataHandler.TextEntitySearch import TextProcessor  # This is the class that will be used to process the text data
-from 
+import sys
+from DataFetcher.APIHandler import JSONHandler
+import threading
 
 
 
@@ -22,9 +24,10 @@ def main():
     # Acquire monuments point data from local file. This is ALL known monuments in Ireland.
     # Uses a DataLoader class to load the data
 
-    monuments_loader = DataLoader()
-    monuments_zip = "zip:///Users/mensab/Documents/GISMapFiles/NMS_OpenData_20230623_shp.zip"
-    monuments_map = monuments_loader.load_point_shapefile(monuments_zip)
+    
+    #monuments_loader = DataLoader()
+    #monuments_zip = "zip:///Users/mensab/Documents/GISMapFiles/NMS_OpenData_20230623_shp.zip"
+    #monuments_map = monuments_loader.load_point_shapefile(monuments_zip)
    
 
     # Load geospatial data from local shapefiles. These are downloaded from the OSI website
@@ -65,22 +68,60 @@ def main():
     # Connect to available api  Monuments services are offline
     # Monuments API is below, the data has been loaded above as a file while API is offline.
 
-    # api_url_monuments = "https://webservices.archaeology.ie/arcgis/rest/services/NM/NationalMonuments/MapServer"  # Replace this with the actual API URL
+    # api_url_monuments = "https://webservices.archaeology.ie/arcgis/rest/services/NM/NationalMonuments/MapServer"  # Monuments API
+
+    # Folklore API
+    # API key is obtained from GAOIS (https://www.duchas.ie/en/info/api)
+    
+    api_key = "vV6BzMTwGGIBbOFF6lASOir1qWQ1Jh"
+    schools_folklore_loader = APIHandler()
+    api_url_folklore = "https://www.duchas.ie/api/v0.6/cbes"  # Folklore API
+    schools_topics_list = schools_folklore_loader.fetch_data_from_api(api_url_folklore, api_key)
+    print(schools_topics_list)
+
+
+
+
 
     # Connect to Logainm API and fetch data
     placenames_loader = APIHandler()
-    api_url_placenames = "https://www.logainm.ie/api/v1.0/administrative-units/"  # Replace this with the actual API URL
-    api_key = "VHjGfxN2wrKL88viNCn378nCHX2eXS"
+    api_handshake = placenames_loader.fetch_data_from_api("https://www.logainm.ie/api/v1.0/", api_key)
+    api_url_admin_units = "https://www.logainm.ie/api/v1.0/administrative-units/"
+    api_url_lat_long = "https://www.logainm.ie/api/v1.0/?Latitude=54.26969&Longitude=-8.46943&Radius=3000"
+
+  
     # params = {
         # "county": "YourTargetCounty",
         # "other_parameters": "other_values",
      #}
 
-    #placenames_data = placenames_loader.fetch_data_from_api(api_url_placenames, api_key)
+    admin_units_data = placenames_loader.fetch_data_from_api(api_url_admin_units, api_key)
+    lat_long_data = placenames_loader.fetch_data_from_api(api_url_lat_long, api_key)
 
-    # parsed_file = parse_json(data)
+    print(admin_units_data)
+    print("potato")
+    print(json.dumps(lat_long_data, indent=4, sort_keys=True))
+
+    
+
+    # Save the data to a local file
+    json_handler = JSONHandler()
+    #json_handler.save_data_to_file(admin_units_data, 'admin_units_data.json')
+    json_handler.save_data_to_file(lat_long_data, 'lat_long_data.json')
+
+
+    sys.exit()
+
+
+    #parsed_file = parse_json(data)
     #for item in data["results"]:
         #print(item)
+
+
+
+
+    # Save the data to a local file
+
 
 
     # _______________________________________________________________________________________________________________________
@@ -128,8 +169,8 @@ def main():
     #'': 'SomeValue',  # Add more mappings as needed
 #}
 
-# Use the function to replace values
-gdf =  replace_values(gdf, source_column='M_Type', target_column='Symmetry', mapping_dict=replacement_map)
+    # Use the function to replace values
+    gdf =  replace_values(gdf, source_column='M_Type', target_column='Symmetry', mapping_dict=replacement_map)
 
 
 
