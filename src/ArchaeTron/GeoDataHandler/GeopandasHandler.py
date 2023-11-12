@@ -4,16 +4,24 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
+# Defines a class to handle GeoDataFrames
+
+
 class GeopandasHandler:
     def __init__(self):
         # Initialize Geopandas settings
         pass
-    
-    def load_geospatial_data(self, file_path):
-        df = gpd.read_file(file_path)
-        return df
-        # Load geographic data using Geopandas
 
+     # Function to change the CRS of multiple GeoPandas DataFrames
+    def change_crs(self, target_epsg, gdf):
+
+        # Change the CRS of the GeoDataFrame
+        gdf = gdf.to_crs(epsg=target_epsg)
+
+        # Return the updated GeoDataFrame
+        return gdf  
+       
+    
 
     # Define a function to apply value replacements based on a mapping dictionary
     def replace_values(df, source_column, target_column, mapping_dict):
@@ -28,15 +36,7 @@ class GeopandasHandler:
         # Return the updated GeoDataFrame
         return df
       
-    
-
-
-
-
-
-
-
-
+    # Define a function to create a GeoDataFrame from a list of coordinates
     # Polygon data manipulation functions
 
     def create_polygon_buffer(self, polygon, buffer_distance):
@@ -55,6 +55,8 @@ class GeopandasHandler:
         return points_within_polygon
     
     
+    # 
+
     def merge_polygons(self, polygon1, polygon2):
         # Merge polygons
         merged_polygons = polygon1.union(polygon2)
@@ -78,18 +80,71 @@ class GeopandasHandler:
         polygon2 = geodataframe.iloc[[index2]]
 
         # Concatenate (merge) the selected polygons into a single new polygon
+
         merged_polygon = gpd.GeoDataFrame(pd.concat([polygon1, polygon2], ignore_index=True))
 
         # Set the new polygon's name (the "new_polygon_name" argument)
+
         merged_polygon['new_name'] = new_polygon_name
 
         # Append the merged polygon to the original GeoDataFrame
+
         result_geodataframe = geodataframe.append(merged_polygon, ignore_index=True)
+
         return result_geodataframe
 
         # Example usage:
-        # Assuming you have a GeoDataFrame named 'gdf' and you want to merge rows at indices 1 and 2 into a new polygon with the name 'MergedPolygon'
+        # Assuming you have a GeoDataFrame named 'gdf' and you want to merge rows at indices 1 and 2 into a new
+        # polygon with the name 'MergedPolygon'
         # result_gdf = merge_and_rename_polygons(gdf, 1, 2, 'MergedPolygon')
+
+
+
+ 
+
+
+
+
+
+
+
+
+       
+
+
+
+
+
+
+
+
+
+
+class ArchaeoObject:
+    def __init__(self, number, classname, latitude, longitude):
+        self.number = number
+        self.classname = classname
+        self.latitude = latitude
+        self.longitude = longitude
+
+    def set_number(self, number):
+        self.number = number
+        return self
+
+    def set_classname(self, classname):
+        self.classname = classname
+        return self
+
+    def set_latitude(self, latitude):
+        self.latitude = latitude
+        return self
+
+    def set_longitude(self, longitude):
+        self.longitude = longitude
+        return self
+
+
+
 
 
         

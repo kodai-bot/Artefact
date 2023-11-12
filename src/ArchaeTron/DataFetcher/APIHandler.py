@@ -24,6 +24,26 @@ class APIHandler:
         except requests.exceptions.RequestException as e:
             print(f"Error occurred: {e}")
             return None
+        
+
+    # Wikipedia API method to request data from a resource
+    
+    def fetch_data_from_wikipedia_api(self, api_url, api_key, search_term):
+        try:
+            params = {"action": "query", "list": "search", "srsearch": search_term, "format": "json"}
+            response = requests.get(api_url, params=params)
+
+            response.raise_for_status()  # Raise an exception for 4xx or 5xx errors
+            data = response.json()
+            print(f"Data fetched from {api_url}.")
+            print(f"Number of results: {len(data['query']['search'])}")
+            print(f"Results: {data['query']['search']}")
+            return data
+    
+        except requests.exceptions.RequestException as e:
+            print(f"Error occurred: {e}")
+            return None
+
     
 
 
@@ -50,7 +70,7 @@ class JSONHandler:
     
 
     
-    # 
+    
 
 
     

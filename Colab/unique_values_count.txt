@@ -1,0 +1,256 @@
+Ringfort - rath: 2860
+Redundant record: 1157
+Enclosure: 1045
+Ringfort - cashel: 755
+Souterrain: 627
+Standing stone: 424
+Hut site: 412
+Ritual site - holy well: 324
+Crannog: 270
+Ringfort - unclassified: 267
+Church: 259
+Graveyard: 209
+Midden: 195
+Cairn - unclassified: 180
+Megalithic tomb - unclassified: 180
+Cross-slab: 173
+Rock art: 160
+Bullaun stone: 147
+Sweathouse: 141
+Fulacht fia: 139
+Megalithic tomb - court tomb: 136
+Burial ground: 120
+Burnt mound: 119
+Megalithic structure: 112
+Castle - unclassified: 109
+Cist: 103
+Mound: 102
+Megalithic tomb - passage tomb: 99
+Field system: 96
+Barrow - ring-barrow: 95
+House - indeterminate date: 94
+Promontory fort - coastal: 89
+Field boundary: 89
+Earthwork: 75
+Megalithic tomb - wedge tomb: 72
+Barrow - unclassified: 72
+Structure: 65
+Children's burial ground: 62
+Architectural fragment: 60
+Cairn - boundary cairn: 56
+Megalithic tomb - portal tomb: 55
+Moated site: 53
+Cross: 51
+Barrow - mound barrow: 50
+Graveslab: 49
+Burial: 49
+Cross-slab (present location): 49
+House - 18th/19th century: 47
+Ecclesiastical enclosure: 47
+Building: 46
+Bawn: 45
+Designed landscape - tree-ring: 44
+Kiln - lime: 39
+Castle - tower house: 37
+Barrow - bowl-barrow: 37
+Penitential station: 37
+Road - road/trackway: 36
+House - 16th/17th century: 34
+Bridge: 33
+Cross-inscribed stone: 30
+Mass-rock: 29
+Penal Mass station: 29
+Leacht: 28
+Boundary mound: 26
+Cross-inscribed pillar: 24
+Ritual site - holy/saint's stone: 23
+Stone row: 22
+House - early medieval: 22
+Seaweed stand: 20
+House - 17th century: 19
+Cross - High cross: 19
+Signal tower: 19
+Anomalous stone group: 19
+Cliff-edge fort: 18
+Quarry: 18
+Stone circle: 16
+Settlement cluster: 16
+Well: 16
+Battlefield: 16
+Mill - unclassified: 16
+Promontory fort - inland: 15
+Standing stone - pair: 15
+Hilltop enclosure: 15
+Booley hut: 15
+Metalworking site: 14
+Cairn - burial cairn: 14
+Barrow - embanked barrow: 14
+Linear earthwork: 14
+Burnt spread: 14
+House - fortified house: 14
+Habitation site: 14
+Settlement platform: 13
+Inscribed stone: 13
+Barrow - ditch barrow: 12
+Bastioned fort: 12
+Historic town: 12
+Stone sculpture: 12
+Post row - peatland: 11
+Stone head: 11
+Clochan: 10
+Castle - motte: 10
+Cave: 10
+Kiln: 10
+Hospital: 10
+Weir - regulating: 9
+Fortification: 9
+Sheepfold: 9
+Kiln - corn-drying: 9
+Altar: 8
+Cairn - clearance cairn: 8
+Ecclesiastical site: 8
+Bullaun stone (present location): 8
+Wall monument: 8
+Cairn - ring-cairn: 8
+Burial mound: 8
+Religious house - Franciscan Third Order Regular: 8
+Font: 8
+Pit-burial: 7
+Armorial plaque: 7
+Prehistoric site - lithic scatter: 7
+Religious house - unclassified: 6
+Tomb - unclassified: 6
+Hillfort: 6
+Cultivation ridges: 5
+Hearth: 5
+Settlement deserted - medieval: 5
+Cursing stone: 5
+Urn burial: 5
+Flat cemetery: 5
+Pillar stone: 5
+Platform: 5
+Ford: 5
+House - medieval: 5
+Designed landscape feature: 5
+Water mill - unclassified: 5
+Embanked enclosure: 4
+Barrow - stepped barrow: 4
+Causeway: 4
+Ring-ditch: 4
+Headstone: 4
+Designed landscape - folly: 4
+Ritual site - holy tree/bush: 4
+Town defences: 4
+Castle - Anglo-Norman masonry castle: 4
+Religious house - Franciscan friars: 4
+Mine: 4
+Graveslab (present location): 4
+Barrow - pond barrow: 4
+Road - unclassified togher: 4
+Font (present location): 3
+Cross-inscribed pillar (present location): 3
+Religious house - Cistercian monks: 3
+Inscribed slab: 3
+Hermitage: 3
+Round tower: 3
+Cathedral: 3
+Castle - ringwork: 3
+Gateway: 3
+Enclosure - large enclosure: 3
+Ogham stone: 3
+Kerb circle: 3
+Weir - fish: 3
+Religious house - Augustinian canons: 3
+Mill - corn: 3
+Country house: 3
+Excavation - miscellaneous: 3
+Castle - motte and bailey: 3
+Salt works: 3
+Religious house - Dominican friars: 3
+Rock art (present location): 3
+Religious house - Augustinian friars: 2
+Structure - peatland: 2
+Holed stone: 2
+Gatehouse: 2
+Religious house - Carmelite friars: 2
+Crucifixion plaque: 2
+Stone sculpture (present location): 2
+Shrine: 2
+Chapel: 2
+Water mill - horizontal-wheeled: 2
+Pit: 2
+Stone trough: 2
+Boulder-burial: 2
+Designed landscape - avenue: 2
+Milling complex: 2
+Cross - Tau cross: 2
+Slab-lined burial: 2
+Inauguration stone: 2
+Architectural feature: 2
+Cross - High cross (present location): 2
+Memorial stone: 2
+Castle - hall-house: 2
+Dovecote: 2
+Stone circle - embanked: 2
+Ceremonial enclosure: 2
+Deer park: 2
+Monumental structure: 2
+Cupmarked stone: 2
+Inscribed stone (present location): 2
+Quay: 2
+Boundary stone: 2
+Furnace: 2
+Cairn - wayside cairn: 2
+House - 17th/18th century: 2
+Sheela-na-gig: 2
+Mausoleum: 2
+Religious house - Knights Templars: 1
+Road - class 3 togher: 1
+Exhibitionist figure: 1
+Rock scribing - folk art: 1
+Ritual site - pond: 1
+Designed landscape - summer house: 1
+Platform - peatland: 1
+Stoup (present location): 1
+Distillery: 1
+Ecclesiastical residence: 1
+Wall monument - effigial: 1
+Causewayed enclosure: 1
+Decorated stone: 1
+Memorial stone (present location): 1
+Market-house: 1
+Cremated remains: 1
+Cross - Market cross: 1
+Rock scribing: 1
+House - vernacular house: 1
+Stone head (present location): 1
+Pit circle: 1
+Burnt pit: 1
+Custom house: 1
+Designed landscape - belvedere: 1
+Fish-pond: 1
+Churchyard: 1
+Cross - Wayside cross: 1
+Rock shelter: 1
+Inauguration site: 1
+Pit alignment: 1
+Windmill: 1
+Meeting-house: 1
+Mass-rock (present location): 1
+School: 1
+Watchtower: 1
+Leper hospital: 1
+Sea wall: 1
+Kiln - kelp drying: 1
+College: 1
+Religious house - Augustinian, of Arrouaise nuns: 1
+Tomb - effigial: 1
+Henge: 1
+Castle - ringwork and bailey: 1
+Prison: 1
+Terrace: 1
+Cross (present location): 1
+Mill - bleaching: 1
+Walled garden: 1
+Blockhouse: 1
+Concentric enclosure: 1

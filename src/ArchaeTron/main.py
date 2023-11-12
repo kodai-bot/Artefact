@@ -6,13 +6,15 @@ from DataFetcher.APIHandler import *
 from WebInterface import *
 import gradio as gr
 from GeoDataHandler.GeopandasHandler import *
-from DataFetcher.Data_Loader import DataLoader
+from FileManager.Data_Loader import DataLoader
 import geopandas as gpd
 from GeoDataHandler.GeoDataVisualiser import GeoDataVisualiser
 from GeoDataHandler.TextEntitySearch import TextProcessor  # This is the class that will be used to process the text data
 import sys
 from DataFetcher.APIHandler import JSONHandler
 import threading
+from FileManager.data_saver import DataSaver
+
 
 
 
@@ -23,40 +25,52 @@ def main():
    
     # Acquire monuments point data from local file. This is ALL known monuments in Ireland.
     # Uses a DataLoader class to load the data
+    # DATA FROM LOCAL FILES
 
     
-    #monuments_loader = DataLoader()
+    monuments_loader = DataLoader()
     #monuments_zip = "zip:///Users/mensab/Documents/GISMapFiles/NMS_OpenData_20230623_shp.zip"
     #monuments_map = monuments_loader.load_point_shapefile(monuments_zip)
-   
+
+    # Load monuments data from local file. This data has been cleaned and filtered to only include monuments in the northwest counties. 
+
+    nw_monuments = monuments_loader.load_point_shapefile("/Users/mensab/Documents/GISMapFiles/NorthWestMonuments.shp")
+
+    #monuments_copy = monuments_map.copy() 
+    filesaver = DataSaver()
+    #filesaver.save_gdf_to_shapefile(monuments_copy, "monuments.shp")
+    
 
     # Load geospatial data from local shapefiles. These are downloaded from the OSI website
     # Uses a DataLoader class to load the data
 
     # Load baronies shapefile
-    baronies_loader = DataLoader()
-    barony_zip = "zip:///Users/mensab/Documents/GISMapFiles/Baronies_-_OSi_National_Statutory_Boundaries_-_Generalised_20m-shp.zip"
-    barony_map = baronies_loader.load_polygon_shapefile(barony_zip)
+    #baronies_loader = DataLoader()
+    #barony_zip = "zip:///Users/mensab/Documents/GISMapFiles/#Baronies_-_OSi_National_Statutory_Boundaries_-_Generalised_20m-shp.zip"
+    #barony_map = baronies_loader.load_polygon_shapefile(barony_zip)
 
     # Load provinces shapefile
-    provinces_loader = DataLoader()
-    province_zip = "zip:///Users/mensab/Documents/GISMapFiles/Provinces_-_OSi_National_Statutory_Boundaries_-_Generalised_20m-shp.zip"
-    province_map = provinces_loader.load_polygon_shapefile(province_zip)
+    # provinces_loader = DataLoader()
+    # province_zip = "zip:///Users/mensab/Documents/GISMapFiles/#Provinces_-_OSi_National_Statutory_Boundaries_-_Generalised_20m-shp.zip"
+    # province_map = provinces_loader.load_polygon_shapefile(province_zip)
 
     # Load civil parishes shapefile
-    civil_parishes_loader = DataLoader()
-    civil_parish_zip = "zip:///Users/mensab/Documents/GISMapFiles/Civil_Parishes_-_OSi_National_Statutory_Boundaries_-_Generalised_20m-shp.zip"
-    civil_parish_map = civil_parishes_loader.load_polygon_shapefile(civil_parish_zip)
+    #civil_parishes_loader = DataLoader()
+    #civil_parish_zip = "zip:///Users/mensab/Documents/GISMapFiles/#Civil_Parishes_-_OSi_National_Statutory_Boundaries_-_Generalised_20m-shp.zip"
+    #civil_parish_map = civil_parishes_loader.load_polygon_shapefile(civil_parish_zip)
 
     # Load townlands shapefile
     #townlands_loader = DataLoader()
-    #townland_zip = "zip:///Users/mensab/Documents/GISMapFiles/Townlands_-_OSi_National_Statutory_Boundaries_-_Generalised_20m-shp.zip"
+    #townland_zip = "zip:///Users/mensab/Documents/GISMapFiles/#Townlands_-_OSi_National_Statutory_Boundaries_-_Generalised_20m-shp.zip"
     #townland_map = townlands_loader.load_polygon_shapefile(townland_zip)
 
     # Load counties shapefile
-    counties_loader = DataLoader()
-    county_zip = "zip:///Users/mensab/Documents/GISMapFiles/Counties_-_National_Statutory_Boundaries_-_2019_-_Generalised_20m.zip"
-    county_map = counties_loader.load_polygon_shapefile(county_zip)
+    #counties_loader = DataLoader()
+    #county_zip = "zip:///Users/mensab/Documents/GISMapFiles/#Counties_-_National_Statutory_Boundaries_-_2019_-_Generalised_20m.zip"
+    #county_map = counties_loader.load_polygon_shapefile(county_zip)
+
+
+    # Excavations data
 
     # Load TII (Transport Infrastructure Ireland) Archaeology shapefile
 
@@ -64,80 +78,189 @@ def main():
     #tii_zip = "zip:////Users/mensab/Documents/GISMapFiles/TIIArchaeology.zip"
     #tii_map = tii_loader.load_point_shapefile(tii_zip)
 
+    # Excavations.ie data
+
+
+
+    # Geographic features data
+
+    #Load ground cover data from local file
+    #ground_cover_loader = DataLoader()
+    #ground_cover = "/Users/mensab/Documents/GISMapFiles/CLC18_IE_ITM"
+    #ground_cover_map = ground_cover_loader.load_polygon_shapefile(ground_cover)
+
+    # Load rivers data from local file
+    #rivers_loader = DataLoader()
+    #rivers = "/Users/mensab/Documents/GISMapFiles/Rivers&Lakes/Shapefiles"
+    #rivers_map = rivers_loader.load_polygon_shapefile(rivers)
+
+    # Load soils data from local file
+    #soils_loader = DataLoader()
+    #soils = "/Users/mensab/Documents/GISMapFiles/SOIL_SISNationalSoils_shp/Data/SOIL_SISNationalSoils_Shp"
+    #soils_map = soils_loader.load_polygon_shapefile(soils)
+
+    # Load height data from local file
+    #heights_loader = DataLoader()
+    #heights = "/Users/mensab/Documents/GISMapFiles/srtm_35_02/srtm_35_02.tif"
+    #heights_map = heights_loader.load_raster(heights)
+
+
+
+
+    # API DATA
+
     # Connect to the API and fetch data
-    # Connect to available api  Monuments services are offline
-    # Monuments API is below, the data has been loaded above as a file while API is offline.
+    # API calls are made using the APIHandler class
 
     # api_url_monuments = "https://webservices.archaeology.ie/arcgis/rest/services/NM/NationalMonuments/MapServer"  # Monuments API
 
-    # Folklore API
+    # Folklore API at logainm.ie
     # API key is obtained from GAOIS (https://www.duchas.ie/en/info/api)
     
     api_key = "vV6BzMTwGGIBbOFF6lASOir1qWQ1Jh"
-    schools_folklore_loader = APIHandler()
-    api_url_folklore = "https://www.duchas.ie/api/v0.6/cbes"  # Folklore API
-    schools_topics_list = schools_folklore_loader.fetch_data_from_api(api_url_folklore, api_key)
-    print(schools_topics_list)
 
-
-
-
+    #schools_folklore_loader = APIHandler()
+    #api_url_folklore = "https://www.duchas.ie/api/v0.6/cbes"  # Folklore API
+    #schools_topics_list = schools_folklore_loader.fetch_data_from_api(api_url_folklore, api_key)
+    #print(schools_topics_list)
 
     # Connect to Logainm API and fetch data
-    placenames_loader = APIHandler()
-    api_handshake = placenames_loader.fetch_data_from_api("https://www.logainm.ie/api/v1.0/", api_key)
+    #placenames_loader = APIHandler()
+    #api_handshake = placenames_loader.fetch_data_from_api("https://www.logainm.ie/api/v1.0/", api_key)
+    
+    # API address for administrative units
+
     api_url_admin_units = "https://www.logainm.ie/api/v1.0/administrative-units/"
     api_url_lat_long = "https://www.logainm.ie/api/v1.0/?Latitude=54.26969&Longitude=-8.46943&Radius=3000"
 
-  
     # params = {
         # "county": "YourTargetCounty",
         # "other_parameters": "other_values",
      #}
+    
+    # Test API calls
+    #admin_units_data = placenames_loader.fetch_data_from_api(api_url_admin_units, api_key)
+    #lat_long_data = placenames_loader.fetch_data_from_api(api_url_lat_long, api_key)
 
-    admin_units_data = placenames_loader.fetch_data_from_api(api_url_admin_units, api_key)
-    lat_long_data = placenames_loader.fetch_data_from_api(api_url_lat_long, api_key)
+    #print(admin_units_data)
+    #print("potato")
+    #print(json.dumps(lat_long_data, indent=4, sort_keys=True))
 
-    print(admin_units_data)
-    print("potato")
-    print(json.dumps(lat_long_data, indent=4, sort_keys=True))
+    # Save returned data to a local file
+    #json_handler = JSONHandler()
+    #json_handler.save_data_to_file(admin_units_data, 'admin_units_data.json')
+    #json_handler.save_data_to_file(lat_long_data, 'lat_long_data.json')
+
+
+ 
+    
+    # PDF Extraction
+    # Onomastiocon Goedilicum
+
+    # Load the PDF file
+    #pdf_handler = PDFHandler()
+    #pdf_file = pdf_handler.load_pdf_file("/Users/mensab/Documents/GISMapFiles/Onomasticon_Goedilicum.pdf")
+
+    # Data scraping
+    # EDIL (Electronic Dictionary of the Irish Language)
+    # https://edil.qub.ac.uk/
+    # Named entity recognition
+
+    # Wikipedia 
+    # https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Donegal&format=json
+    
+    # API call to Wikipedia
+    wikipedia_loader = APIHandler()
+    api_url_wikipedia = "https://en.wikipedia.org/w/api.php"
+    wikipedia_data = wikipedia_loader.fetch_data_from_wikipedia_api(api_url_wikipedia, api_key, "Cairbre Drom Cliabh")
+    print(wikipedia_data)
+
+    # Save returned data to a local file
+    json_handler = JSONHandler()
+    json_handler.save_data_to_file(wikipedia_data, 'wikipedia_data.json')
+    
 
     
 
-    # Save the data to a local file
-    json_handler = JSONHandler()
-    #json_handler.save_data_to_file(admin_units_data, 'admin_units_data.json')
-    json_handler.save_data_to_file(lat_long_data, 'lat_long_data.json')
 
 
-    sys.exit()
+
+    
+
+
+
 
 
     #parsed_file = parse_json(data)
     #for item in data["results"]:
         #print(item)
 
-
-
+    #print(data["results"][0]["county"])
 
     # Save the data to a local file
 
 
 
     # _______________________________________________________________________________________________________________________
+    # Create object for gdf preprocessing
+    gdf_processor = GeopandasHandler()
 
-    # Initial data visualisation of full dataset
+    # Convert the crs to epsg:4326 Standard WGS84 projection, used in GeoJSON and Google Earth
+    # Also important for web mapping, and for feature engineering distances and areas on a curved surface.
+    #target_epsg = 4326
+    #monuments_map = gdf_processor.change_crs(target_epsg, monuments_map)
+    #barony_map = gdf_processor.change_crs(target_epsg, barony_map)
+    #province_map = gdf_processor.change_crs(target_epsg, province_map)
+    #civil_parish_map = gdf_processor.change_crs(target_epsg, civil_parish_map)
+    ##townland_map = gdf_processor.change_crs(target_epsg, townland_map)
+    #county_map = gdf_processor.change_crs(target_epsg, county_map)
 
-    #visualiser = GeoDataVisualiser()
-    #visualiser.plot_data(barony_map)
-  
+    # Select the monument data for the northwest counties
+
+    northwest_monuments = monuments_copy[monuments_map['COUNTY'].isin(['SLIGO', 'DONEGAL','LEITRIM'])]
+    print(northwest_monuments.head())
+    print(northwest_monuments.shape())
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+    
 
     # Visualise the data for the northwest counties
 
-    northwest_monuments = monuments_map[monuments_map['COUNTY'].isin(['SLIGO', 'DONEGAL','LEITRIM'])]
-    # visualiser.plot_data_combined(barony_map, monuments_map)
-   
+    #print(barony_map.crs)
+    #print(province_map.crs)
+    #print(civil_parish_map.crs)
+    #print(townland_map.crs)
+    #print(county_map.crs)
+    print(monuments_copy.crs)
 
+    #visualiser = GeoDataVisualiser()
+    #visualiser.plot_data(barony_map)
+    #visualiser.plot_data(province_map)
+    #visualiser.plot_data(civil_parish_map)
+  
+
+    sys.exit()
+
+    # visualiser.plot_data_combined(barony_map, monuments_map)
+
+
+   
+    # Save modified data to a local file
 
 
 
@@ -204,6 +327,25 @@ def main():
 
     # Create a concrete GeoDataFrame builder
     geodataframe_builder = geodataframe_factory.create_GeoDataFrameBuilder()
+
+
+    # Example usage:
+    # archaeo_objects = create_archaeo_objects_from_geodataframe(your_geodataframe_variable)
+
+
+    # Example usage:
+    # original_geodataframe = your_original_geodataframe_variable
+    # archaeo_objects = create_archaeo_objects_from_geodataframe(original_geodataframe)
+
+    # Modify attributes of the ArchaeoObjects using the builder pattern
+    for obj in archaeo_objects:
+        obj.set_number(5).set_classname('NewClass').set_latitude(53.349805).set_longitude(-6.26031)
+
+    # Update attributes as needed
+
+    # Convert the list of ArchaeoObjects back to a new GeoDataFrame
+    # new_geodataframe = convert_to_geodataframe(archaeo_objects, original_geodataframe)
+
 
 
     # _______________________________________________________________________________________________________________________

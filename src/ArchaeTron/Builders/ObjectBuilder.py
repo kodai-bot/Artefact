@@ -42,6 +42,7 @@ class ArchObjectBuilder:
             self.geometry.append(geometry)
             return self  # Return the builder instance to allow method chaining
         
+        
         def set_crs(self, crs):
             self.crs = crs
             return self
@@ -57,4 +58,42 @@ class ArchObjectBuilder:
                 gdf = gpd.GeoDataFrame(self.data, geometry=self.geometry)
 
             return gdf
+        
+        
+        # Define a function to create custom archaeo objects from a GeoDataFrame.
+        # The function takes a GeoDataFrame as input and returns a list of ArchaeoObject instances.
+        # The function assumes that the GeoDataFrame has columns named 'number', 'classname', 'latitude', and
+        #'longitude'. These will need to be changed to match the column names in your GeoDataFrame. Or modify the # function to pass these as arguments
+
+        def create_archaeo_objects_from_geodataframe(geodataframe):
+            archaeo_objects = []
+            for index, row in geodataframe.iterrows():
+                # Assuming 'number', 'classname', 'latitude', and 'longitude' are column names in the GeoDataFrame
+                number = row['number']
+                classname = row['classname']
+                latitude = row['latitude']
+                longitude = row['longitude']
+
+                # Creating ArchaeoObject instances
+                archaeo_obj = ArchaeoObject(number, classname, latitude, longitude)
+                archaeo_objects.append(archaeo_obj)
+
+            return archaeo_objects  
+        
+
+        
+        # Function to convert list of ArchaeoObjects back to a GeoDataFrame, pass the archaeo_objects list and # # the original GeoDataFrame as arguments
+
+        def convert_to_geodataframe(archaeo_objects, original_geodataframe):
+            data = {
+                'number': [obj.number for obj in archaeo_objects],
+                'classname': [obj.classname for obj in archaeo_objects],
+                'latitude': [obj.latitude for obj in archaeo_objects],
+                'longitude': [obj.longitude for obj in archaeo_objects]
+            }
+    
+        # Create a new GeoDataFrame from the data and original GeoDataFrame's geometry
+
+            new_geodf = gpd.GeoDataFrame(data, geometry=original_geodataframe.geometry)
+            return new_geodf
 
