@@ -1,0 +1,84 @@
+Ringfort - rath: 2860
+Ringfort - cashel: 755
+Souterrain: 627
+Standing stone: 424
+Hut site: 412
+Ritual site - holy well: 324
+Crannog: 270
+Ringfort - unclassified: 267
+Church: 259
+Megalithic tomb - unclassified: 180
+Cairn - unclassified: 180
+Cross-slab: 173
+Bullaun stone: 147
+Megalithic tomb - court tomb: 136
+Megalithic structure: 112
+Castle - unclassified: 109
+Mound: 102
+Megalithic tomb - passage tomb: 99
+Barrow - ring-barrow: 95
+Promontory fort - coastal: 89
+Barrow - unclassified: 72
+Megalithic tomb - wedge tomb: 72
+Structure: 65
+Cairn - boundary cairn: 56
+Megalithic tomb - portal tomb: 55
+Cross: 51
+Barrow - mound barrow: 50
+Graveslab: 49
+Cross-slab (present location): 49
+Ecclesiastical enclosure: 47
+Bawn: 45
+Castle - tower house: 37
+Barrow - bowl-barrow: 37
+Cross-inscribed stone: 30
+Leacht: 28
+Boundary mound: 26
+Cross-inscribed pillar: 24
+Ritual site - holy/saint's stone: 23
+Stone row: 22
+Cross - High cross: 19
+Cliff-edge fort: 18
+Battlefield: 16
+Stone circle: 16
+Settlement cluster: 16
+Standing stone - pair: 15
+Hilltop enclosure: 15
+Promontory fort - inland: 15
+Barrow - embanked barrow: 14
+Linear earthwork: 14
+Cairn - burial cairn: 14
+Inscribed stone: 13
+Historic town: 12
+Barrow - ditch barrow: 12
+Castle - motte: 10
+Fortification: 9
+Cairn - ring-cairn: 8
+Cairn - clearance cairn: 8
+Burial mound: 8
+Pit-burial: 7
+Hillfort: 6
+Ford: 5
+Pillar stone: 5
+Embanked enclosure: 4
+Ring-ditch: 4
+Barrow - pond barrow: 4
+Barrow - stepped barrow: 4
+Kerb circle: 3
+Rock art (present location): 3
+Round tower: 3
+Ogham stone: 3
+Castle - ringwork: 3
+Cross-inscribed pillar (present location): 3
+Enclosure - large enclosure: 3
+Holed stone: 2
+Cross - Tau cross: 2
+Ceremonial enclosure: 2
+Castle - hall-house: 2
+Inscribed stone (present location): 2
+Boundary stone: 2
+Cairn - wayside cairn: 2
+Cross - High cross (present location): 2
+Monumental structure: 2
+Stone circle - embanked: 2
+Boulder-burial: 2
