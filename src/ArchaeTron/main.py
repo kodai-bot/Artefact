@@ -14,6 +14,7 @@ import sys
 from DataFetcher.APIHandler import JSONHandler
 import threading
 from FileManager.data_saver import DataSaver
+from TimeHandler.StateVectors import StateVector
 
 
 
@@ -221,17 +222,41 @@ def main():
     print(northwest_monuments.head())
     print(northwest_monuments.shape())
 
+
+    # Create the state vectors for the data objects. 
+    # These allow the different states at different times to be accessed. 
+
+    from TimeHandler.positionCalculator import to_equatorial
+
+    # Get equatorial coordinates for the objects in this study area.
+    Map_Lat, Map_Long = 54.26969, -8.46943
+    Map_RA, Map_Dec = to_equatorial(Map_Lat, Map_Long)
     
 
 
+    Barony_Map_Vector = StateVector()
+    # t=0 is the present day map, each step in t is a change in object state.
+
+    Barony_Map_Vector.add_state(t=0, ra=Map_RA, dec=Map_Dec, z_0=0, object_details=baronies_NW, inception_point= None)
+    Barony_Map_Vector.add_state(t=1, ra=Map_RA, dec=Map_Dec, z_0=423, object_details=baronies_NW_1600, inception_point= None)
+
+    Monuments_Map_Vector = StateVector()
+    Monuments_Map_Vector.add_state(t=0, ra=10, dec=20, z_0=23, object_details=monuments_NW_clean, inception_point= None)
+    Monuments_Map_Vector.add_state(t=1, ra=10, dec=20, z_0=423, object_details=monuments_NW_1600, inception_point= None)
 
 
 
 
 
+    timestep = 0  # Choose a specific time step
+    state_timestep = BaronyMap.get_state(timestep)
 
-
-
+    # Extracting information from the state vector
+    # Extracting information from the state vector
+    x_coord = state_timestep['RA']
+    y_coord = state_timestep['Dec']
+    z_coord = state_timestep['z_0']
+    object_details = state_timestep['object_details']
 
     
     
@@ -278,7 +303,14 @@ def main():
     #column1_values = existing_gdf['column1']
     #column2_values = existing_gdf['column2']
 
-
+# Example usage of the Fetch_Location Data object
+   # soil_analyzer = SoilTypeAnalyzer('path/to/your/soil_data.shp')
+   #longitude = 25.0
+   # latitude = 40.0
+   # soil_type = soil_analyzer.get_soil_type(longitude, latitude)
+   #if soil_type:
+   #     print(f"The soil type at ({longitude}, {latitude}) is: {soil_type}")
+  # else:
 
     
     # Create a test geopandas handler

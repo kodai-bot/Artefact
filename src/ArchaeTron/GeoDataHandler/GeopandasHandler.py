@@ -145,6 +145,9 @@ class ArchaeoObject:
 
 
 
+    
+        print(f"No soil data found for the coordinates ({longitude}, {latitude}).")
+
 
 
         
