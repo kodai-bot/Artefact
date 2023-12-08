@@ -55,7 +55,7 @@ class GeopandasHandler:
         return points_within_polygon
     
     
-    # 
+    # NOTE: Polygons must intersect for a union operation to work on them.
 
     def merge_polygons(self, polygon1, polygon2):
         # Merge polygons
@@ -71,8 +71,10 @@ class GeopandasHandler:
         # Add column to GeoDataFrame
         geodataframe[column_name] = column_data
         return geodataframe
+
+
     
-   
+   # NOTE: Polygons must intersect for a union operation to work on them.
 
     def merge_and_rename_polygons(geodataframe, index1, index2, new_polygon_name):
         # Select the two rows (polygons) by their indices
@@ -97,26 +99,6 @@ class GeopandasHandler:
         # Assuming you have a GeoDataFrame named 'gdf' and you want to merge rows at indices 1 and 2 into a new
         # polygon with the name 'MergedPolygon'
         # result_gdf = merge_and_rename_polygons(gdf, 1, 2, 'MergedPolygon')
-
-
-
- 
-
-
-
-
-
-
-
-
-       
-
-
-
-
-
-
-
 
 
 
