@@ -195,3 +195,29 @@ class ArchaeoSiteObject(ArchaeoObject):
 
 
 
+        class ArchaeoObject:
+    def __init__(self, number, classname, latitude, longitude):
+        self.number = number
+        self.classname = classname
+        self.latitude = latitude
+        self.longitude = longitude
+
+    def set_number(self, number):
+        self.number = number
+        return self
+
+    def set_classname(self, classname):
+        self.classname = classname
+        return self
+
+    def set_latitude(self, latitude):
+        self.latitude = latitude
+        return self
+
+    def set_longitude(self, longitude):
+        self.longitude = longitude
+        return self
+
+
+
+
