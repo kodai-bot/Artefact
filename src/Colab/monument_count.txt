@@ -1,0 +1,82 @@
+MONUMENT_T
+Barrow - bowl-barrow                           37
+Barrow - ditch barrow                          12
+Barrow - embanked barrow                       14
+Barrow - mound barrow                          49
+Barrow - pond barrow                            4
+Barrow - ring-barrow                           95
+Barrow - stepped barrow                         5
+Barrow - unclassified                         108
+Battlefield                                     7
+Bawn                                           63
+Boulder-burial                                  2
+Boundary mound                                 33
+Boundary stone                                  2
+Burial mound                                    6
+Burnt pit                                       2
+Cairn                                         264
+Cairn - burial cairn                           14
+Cairn - clearance cairn                         8
+Cairn - ring-cairn                              8
+Cairn - wayside cairn                           2
+Castle - hall-house                             2
+Castle - motte                                 13
+Castle - ringwork                               5
+Castle - tower house                           40
+Castle - unclassified                         102
+Ceremonial enclosure                            3
+Church                                        311
+Cliff-edge fort                                18
+Concentric enclosure                            2
+Crannog                                       447
+Cross                                          57
+Cross (present location)                        1
+Cross - Churchyard cross                        3
+Cross - High cross                             19
+Cross - High cross (present location)           2
+Cross - Market cross                            2
+Cross - Tau cross                               2
+Cross - Wayside cross                           3
+Cross-inscribed pillar                         23
+Cross-inscribed pillar (present location)       3
+Cross-inscribed stone                          30
+Cross-slab (present location)                  49
+Ecclesiastical enclosure                       52
+Ecclesiastical residence                        2
+Embanked enclosure                              4
+Enclosure - large enclosure                     9
+Ford                                            5
+Hillfort                                        6
+Hilltop enclosure                              23
+Holed stone                                     3
+Inscribed stone                                12
+Leacht                                         28
+Linear earthwork                               11
+Meeting-house                                   4
+Megalithic structure                           93
+Megalithic tomb - court tomb                  154
+Megalithic tomb - passage tomb                 99
+Megalithic tomb - portal tomb                  67
+Megalithic tomb - unclassified                144
+Megalithic tomb - wedge tomb                   83
+Mound                                         111
+Ogham stone                                     5
+Pillar stone                                    5
+Pit-burial                                      6
+Promontory fort - coastal                      87
+Promontory fort - inland                       20
+Ring-ditch                                      5
+Ringfort - cashel                             811
+Ringfort - rath                              3961
+Ringfort - unclassified                       295
+Ritual site - holy well                       314
+Ritual site - holy/saint's stone               21
+Round tower                                     5
+Settlement cluster                             14
+Souterrain                                    641
+Standing stone                                448
+Standing stone (present location)               2
+Standing stone - pair                          15
+Stone circle                                   20
+Stone circle - embanked                         2
+Stone row                                      26
