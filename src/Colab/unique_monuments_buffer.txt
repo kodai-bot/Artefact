@@ -1,0 +1,31 @@
+ID,MONUMENT_T
+2,['Ringfort - rath' 'Standing stone' 'Bawn' 'Barrow - unclassified']
+3,['Ringfort - rath' 'Standing stone' 'Cairn - unclassified']
+4,['Ritual site - holy well' 'Ringfort - rath']
+5,['Standing stone']
+6,['Ringfort - rath' 'Standing stone' 'Souterrain']
+7,"['Megalithic tomb - passage tomb' 'Ringfort - rath'
+ 'Megalithic tomb - wedge tomb' 'Megalithic tomb - portal tomb'
+ 'Ringfort - cashel' 'Souterrain' 'Crannog' 'Cairn - ring-cairn'
+ 'Standing stone - pair' 'Ritual site - holy well']"
+8,"['Ringfort - rath' 'Mound' 'Barrow - unclassified' 'Church'
+ 'Ritual site - holy well' 'Cairn - burial cairn']"
+9,"['Megalithic tomb - portal tomb' 'Cairn - unclassified' 'Ringfort - rath'
+ 'Megalithic tomb - court tomb' 'Ritual site - holy well']"
+10,['Ringfort - rath' 'Mound']
+11,['Cairn - boundary cairn' 'Boundary stone']
+12,['Ringfort - rath' 'Souterrain' 'Barrow - bowl-barrow']
+13,"['Ritual site - holy well' 'Ringfort - unclassified' 'Ringfort - rath'
+ 'Church' 'Castle - unclassified' 'Souterrain' 'Round tower'
+ 'Cross - High cross' 'Cross' 'Embanked enclosure']"
+14,"['Ringfort - rath' 'Souterrain' 'Ecclesiastical enclosure' 'Church'
+ 'Cross - High cross' 'Cliff-edge fort' 'Ritual site - holy well']"
+15,"['Bawn' 'Church' 'Ringfort - rath' 'Megalithic tomb - unclassified'
+ 'Crannog' 'Megalithic structure' 'Megalithic tomb - court tomb' 'Ford'
+ 'Ritual site - holy well' 'Souterrain']"
+16,['Ringfort - rath' 'Church']
+18,['Ringfort - rath' 'Megalithic tomb - unclassified' 'Bawn']
+19,['Ringfort - rath' 'Souterrain']
+20,"['Ringfort - rath' 'Ritual site - holy well' 'Church'
+ 'Ringfort - unclassified']"
+21,['Ringfort - cashel']
