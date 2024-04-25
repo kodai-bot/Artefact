@@ -7,8 +7,7 @@ Project Name
 Description
 ============
 
-Provide a brief and concise description of your project. Explain what it does and
-why it's useful or interesting.
+Masters thesis on analysing archaeological data. The thesis sought to explore how archaeological data can be reorganised to make it usable in ML training algorithms. The code is Jupyter notebooks as a record of the process. 
 
 Table of Contents
 =================
