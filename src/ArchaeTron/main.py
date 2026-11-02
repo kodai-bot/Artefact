@@ -1,5 +1,4 @@
-
-
+import os
 from Factories.Archae_Object_Factory import *
 from Builders.ObjectBuilder import *
 from DataFetcher.API_Methods import *
@@ -51,7 +50,8 @@ def main():
 
 
     api_url_placenames = "https://www.logainm.ie/api/v1.0/administrative-units/"  # Replace this with the actual API URL
-    api_key = "VHjGfxN2wrKL88viNCn378nCHX2eXS"
+    # Logainm API key is read from the environment; never commit keys to the repo.
+    api_key = os.environ.get("LOGAINM_API_KEY")
     # params = {
         # "county": "YourTargetCounty",
         # "other_parameters": "other_values",
