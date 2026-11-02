@@ -3,10 +3,10 @@ from setuptools import setup, find_packages
 # Package metadata
 NAME = "ArchaeTron"
 VERSION = "0.1.0"
-DESCRIPTION = "Your package description"
+DESCRIPTION = "Archived MSc prototype: sensed/inferred archaeological objects"
 AUTHOR = "Dylan G Foley"
 EMAIL = "thewookie@protonmail.com"
-URL = "https://github.com/kodai_bot/ArchaeTron"
+URL = "https://github.com/kodai-bot/Artefact"
 
 # Dependencies
 REQUIRES = [
